@@ -1,0 +1,236 @@
+/*汎用定義*/
+body {
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body,
+ol,
+ul,
+li,
+section,
+div,
+button,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+fieldset {
+  border: none;
+}
+ul {
+  list-style-type: none
+}
+p {
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+/*タブメニュー*/
+#menu_tabs {
+  display: block;
+  z-index: 100;
+  padding: 0 0 0 1px;
+}
+#menu_tabs li {
+  display: inline-block
+}
+#menu_tabs li a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc), color-stop(0.5, #eee), color-stop(0.5, #ddd));
+  padding: 6px 12px;
+  border: 1px solid #898C95;
+  font-size: 13px;
+  position: relative;
+  margin: 0 0 1px -1px;
+}
+#menu_tabs li a.active {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 100;
+}
+/*タイトル*/
+h1 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#999));
+  font-size: small;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin: 0px;
+  padding: 3px 8px;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  line-height: 1.4;
+}
+/*メインコンテンツ*/
+#container {
+  z-index: 10;
+  border-top: 1px solid #999;
+  padding: 10px;
+  margin-top: -2px;
+}
+#container > section {
+  display: none
+}
+#container > section div.mainbox {
+  display: -webkit-box;
+  width: 100%;
+}
+#container > section div.box {
+  width: 50%
+}
+#about dl {
+  margin: 20px
+}
+#about dl dd {
+  margin: 10px 0 20px 50px
+}
+#config_text {
+  width: 98%;
+  height: 300px;
+}
+#advanced .margin {
+  margin: 60px 0 0 0
+}
+input:not([type="text"]),
+button,
+label {
+  cursor: pointer
+}
+button {
+  -webkit-appearance: button;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#DDD));
+  border: 1px solid #999;
+  border-bottom-left-radius: 2px 2px;
+  border-bottom-right-radius: 2px 2px;
+  border-top-left-radius: 2px 2px;
+  border-top-right-radius: 2px 2px;
+  margin: 0.2em;
+  padding: 0px 5px;
+}
+button:hover:not([disabled]) {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#99ccff))
+}
+button[disabled] {
+  cursor: default
+}
+input.input_button {
+  font-size: 110%;
+  min-width: 5em;
+  /*max-width: 10em;*/
+  min-height: 2em;
+  background: #ffffff;
+  border-top: #999999 2px solid;
+  border-left: #999999 2px solid;
+  border-right: #cccccc 1px solid;
+  border-bottom: #cccccc 1px solid;
+  border-radius: 5px;
+}
+button.myact {
+  padding: 0.6em 0.5em;
+  font-size: 95%;
+}
+button.action_btn {
+  padding: 0.3em 1em
+}
+.field_action button {
+  font-size: large;
+  width: 90%;
+  padding: 0.4em;
+}
+#action_result {
+  min-height: 40px
+}
+.box textarea {
+  display: block;
+  width: 90%;
+  height: 3em;
+}
+.box input[type="text"] {
+  width: 75%
+}
+span.lt {
+  display: inline-block;
+  min-width: 60px;
+}
+.box dl {
+  margin: 10px
+}
+.box dl dt {
+  padding: .3em .2em;
+  border-top: #cccccc 1px solid;
+  border-left: #cccccc 1px solid;
+  border-right: #cccccc 1px solid;
+}
+.box dl dd {
+  padding: .3em .2em;
+  border-bottom: #cccccc 1px solid;
+  border-left: #cccccc 1px solid;
+  border-right: #cccccc 1px solid;
+}
+#cover {
+  background-color: rgba(128,128,128,0.9);
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  overflow: auto;
+  display: none;
+}
+#cover > ul {
+  display: none
+}
+#cover li.group {
+  display: inline-block;
+  vertical-align: top;
+  padding: 6px;
+  margin: 5px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+}
+#cover li.act {
+  display: block
+}
+#cover > ul h3 {
+  display: inline-block;
+  background: rgba(255,255,255,0.5);
+  color: #333;
+  border-radius: 9px;
+  margin: 0.2em;
+  padding: 0.2em;
+}
+.cover #action_names_list {
+  display: block
+}
+/*
+.cover h1,
+.cover #menu_tabs,
+.cover #container{
+display:none;
+}
+*/
+.cover #cover {
+  display: block
+}
+.key_list {
+  border-collapse: collapse;
+  width: 99%;
+  border: 2px solid #ccc;
+}
+.key_list tr{
+  border: 2px solid #ccc;
+  -webkit-transition: background-color 0.7s ease-out;
+}
+.key_list tr.focus{
+  background-color: #ff0;
+}
+.key_list tr.disabled{
+  opacity: 0.5;
+}
+.key_list td{
+  padding: 0px;
+}
+.key_list td button{
+  margin: 0px;
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title class="MSG_option_title">Chrome Keyconfig</title>
+<link href="css/option_page.css" rel="stylesheet" type="text/css">
+<script src="js/x.js"></script>
+<script src="js/tween2.js"></script>
+<script src="js/get_key.js"></script>
+<script src="js/chrome_keyconfig.js"></script>
+<h1 class="MSG_option_title">Chrome Keyconfig</h1>
+<ul class="tabs" id="menu_tabs">
+  <li class="basics">
+    <a href="#basics" class="active"><span>Basics</span></a>
+  <li class="actions">
+    <a href="#actions"><span>Actions</span></a>
+  <li class="vim_actions">
+    <a href="#vim_actions"><span>Vim Actions</span></a>
+  <li class="advanced">
+    <a href="#advanced"><span>Advanced</span></a>
+  <li class="news">
+    <a href="#news"><span>News</span></a>
+  <li class="about">
+    <a href="#about"><span>About</span></a>
+</ul>
+<div id="container">
+<section id="basics" class="content">
+  <p><input type="checkbox" id="smooth_scroll"><label for="smooth_scroll">Smooth Scroll</label></p>
+  <p><input type="checkbox" id="ldrize"><label for="ldrize">LDRize</label></p>
+  <p><input type="checkbox" id="chrome_vim"><label for="chrome_vim">vi like actions</label></p>
+  <p><input type="checkbox" id="antiAutoFocus"><label for="antiAutoFocus">Anti autofocus</label></p>
+</section>
+<section id="actions" class="content">
+  <div class="mainbox">
+    <div class="box">
+      <h3>Actions for normal mode</h3>
+      <fieldset>
+        <input type="button" id="normal_action_text" value="type key here" class="input_button">
+        <button id="normal_append_action">Add</button>
+        <button id="normal_reset_action_text" >Reset</button>
+      </fieldset>
+      <table class="key_list">
+        <tbody id="normal_action_list">
+        </tbody>
+      </table>
+    </div>
+    <div class="box">
+      <h3>Actions for limited mode</h3>
+      <fieldset>
+        <input type="button" id="limited_action_text" value="type key here" class="input_button">
+        <button id="limited_append_action">Add</button>
+        <button id="limited_reset_action_text">Reset</button>
+      </fieldset>
+      <table class="key_list">
+        <tbody id="limited_action_list">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section id="vim_actions" class="content">
+  <p>Default：
+    <input type="radio" name="vim_default_mode" value="normal" id="vim_default_mode_normal"><label for="vim_default_mode_normal">Normal</label>
+    <input type="radio" name="vim_default_mode" value="insert" id="vim_default_mode_insert"><label for="vim_default_mode_insert">Insert</label>
+  </p>
+  <p>Normal Color：
+    <label for="vimcolor_normal_background">background color</label><input type="text" id="vimcolor_normal_background">
+    <label for="vimcolor_normal_text">text color</label><input type="text" id="vimcolor_normal_text">
+  </p>
+  <p>Insert Color：
+    <label for="vimcolor_insert_background">background color</label><input type="text" id="vimcolor_insert_background">
+    <label for="vimcolor_insert_text">text color</label><input type="text" id="vimcolor_insert_text">
+  </p>
+  <div class="mainbox">
+    <div class="box">
+      <h3>Actions for normal mode</h3>
+      <fieldset>
+        <input type="button" id="vim_normal_action_text" value="type key here" class="input_button">
+        <button id="vim_normal_append_action">Add</button>
+        <button id="vim_normal_reset_action_text" >Reset</button>
+      </fieldset>
+      <table class="key_list">
+        <tbody id="vim_normal_action_list">
+        </tbody>
+      </table>
+    </div>
+    <div class="box">
+      <h3>Actions for insert mode</h3>
+      <fieldset>
+        <input type="button" id="vim_insert_action_text" value="type key here" class="input_button">
+        <button id="vim_insert_append_action">Add</button>
+        <button id="vim_insert_reset_action_text" >Reset</button>
+      </fieldset>
+      <table class="key_list">
+        <tbody id="vim_insert_action_list">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section id="advanced" class="content">
+  <textarea id="config_text"></textarea>
+  <p><button id="export_conf">Export Configuration</button></p>
+  <p><button id="import_conf">Import Configuration</button></p>
+  <p class="margin">
+    <button id="reset_all">Reset All Configuration</button>( Please backup current configuration. )
+  </p>
+</section>
+<section id="news" class="content">
+  <ul>
+    <li>
+      <h4>2012/03/18 20:54</h4>
+      <p>タブの固定(ピン止め)に対応しました。</p>
+      <p>オプションページの見た目の変更とバグ修正、ソースコードをbitbucketからgithubに移動など。</p>
+    </li>
+    <li>
+    <h4>2011/11/02 00:11</h4>
+    <p>Chrome Keyconfigという名前がGoogleのブランディングガイドラインに引っ掛かって公開停止になってしまったので、名前を仮変更しました。あと、クリップボードにコピーするアクションが動いてなかった問題を修正など。</p>
+    </li>
+  <li>
+  <h4>2011/04/14 09:57</h4>
+  <p>オプションページが正常に表示されない問題を修正など。</p>
+  </li>
+  <li>
+  <h4>2010/02/20 11:01</h4>
+  <p>Hit a Hintでフォーカスできない要素があった問題を修正しました(Thx! <a href="http://twitter.com/yu_sakasaki/status/9361555808">@yu_sakasaki</a>)</p>
+  </li>
+  <li>
+  <h4>2010/02/18 21:29</h4>
+  <p>go to…アクションなど、名前を変えてしまったため動かなくなっていた問題を修正(Thx! <a href="http://twitter.com/shigefumi/status/9280319019">@shigefumi</a>)</p>
+  <p>なお、AutoPatchWork、Taberarelooとの連携アクションが消えてしまったときは、AutoPatchWorkやTaberareloo側を一旦無効、即有効にすると復活します。</p>
+  </li>
+  <li>
+  <h4>2010/02/18 4:47</h4>
+  <p>環境によってQuickMarksが動かない問題を修正しました(<a href="http://twitter.com/h_nakamura/statuses/9061145963">Thx!@h_nakamura</a>)。</p>
+  <p>go to…アクションでブックマークレットを呼び出した際にポップアップブロックされる問題を修正しました。(Thx!<a href="http://twitter.com/mofigan/status/8012052228">@mofigan</a>、<a href="http://twitter.com/shigefumi/statuses/8013658921">@shigefumi</a>)</p>
+  <p>Hit-a-hintでフォーカスキーを廃止、キーワードにマッチした要素に即フォーカスするように変更しました。(Thx! edvakf)</p>
+  <p>設定画面で、キーの一覧でもキーを編集できるようにしました。</p>
+  <p>アンチオートフォーカスを試験実装しました。大抵のオートフォーカスはブロックできるはずですが、多少の誤作動があるかもしれません。フィードバックを頂けると助かります。</p>
+  </li>
+  <li>
+  <h4>2009/12/07 5:40</h4>
+  <p><a href="http://bitbucket.org/hotchpotch/">hotchpotchさん</a>作のQuickMarksを搭載しました。</p>
+  <p>QuickMarksは簡易ブックマーク&amp;ショートカットです。</p>
+  <p>マーキングしたいページで「QuickMarksに追加」を呼び、続いてキーを入力するとそのキーでページをマーキングできます。マークしたURLは「QuickMarkを呼び出す」と指定のキーの組み合わせで呼び出すことができます。</p>
+  <p>なお、マークされたURLはブックマークの「その他のブックマーク」→「QuickMarks」に保存されるので、ここを直接編集することも可能です(特にブックマークレットを登録する場合)。</p>
+  </li>
+  <li>
+  <h4>2009/11/23 4:28</h4>
+  <p>ごめんなさい、キーリピート機能が動いていませんでした。ご指摘頂いた<a href="http://twitter.com/yu_sakasaki/status/5941186938" target="_blank">yu_sakasakiさん</a>ありがとうございました!</p>
+  </li>
+  <li>
+  <h4>2009/11/20 7:55</h4>
+  <p>Actionのkeyconfigで設定ページが開けてなかったので修正。あと、下で書き忘れてましたが、viライクを有効にしていると、5 jでjを5回押したことにする機能を実装してあります。</p>
+  </li>
+  <li>
+  <h4>2009/11/19 11:34</h4>
+  <p>Chromiumでfileスキームを指定できなくなるので緊急対応。vimっぽいことを使用としてますが、まだ作りかけです。あと、一応go to this URLにnameをつけられる様になってます。後でnameで呼び出せるようにします。</p>
+  </li>
+  <li>
+  <h4>2009/11/04 17:26</h4>
+  <p>2009/10/19 13:33のTODOにあげていた、ドメイン単位でのモードの保存が実装済みであることを書き忘れていました。視覚的にわかるようにする件はもう少々お待ちください。また、TODOについて<a href="http://bitbucket.org/os0x/chromekeyconfig/issues/?status=new&status=open" target="_blank">bitbucket.orgのIssues</a>にいくつか登録しました。ご意見・ご提案などありましたらこちらに頂けると助かります。</p>
+  </li>
+  <li>
+  <h4>2009/11/04 12:51</h4>
+  <p>AutoPatchWork用のアクションを割り当てできなかったバグを修正。</p>
+  </li>
+  <li>
+  <h4>2009/10/23 23:26</h4>
+  <p>LDRizeを無効にした場合、全体が動かなくなるバグを修正(Thx <a href="http://twitter.com/shigefumi/status/5097392609" target="_blank">@shigefumi</a>)</p>
+  </li>
+  <li>
+  <h4>2009/10/22 4:14</h4>
+  <p>LDRizeのPin、Openが効かなくなっていたので修正しました。</p>
+  </li>
+  <li>
+  <h4>2009/10/21 10:36</h4>
+  <p>何度もすみません、アクションのオプション引数を保存できないバグがまだ残っていたので再度修正しました。</p>
+  </li>
+  <li>
+  <h4>2009/10/21 1:58</h4>
+  <p>アクションのオプション引数を保存できないバグがあったので修正しました。</p>
+  </li>
+  <li>
+  <h4>2009/10/19 19:25</h4>
+  <p>簡易な設定のインポート/エキスポート機能を実装しました。インポートは現在の設定をバックアップしてから行うことを推奨します。また、デフォルトの状態に戻す機能も実装しました。バグったとはこちらでリセットしてみてください。</p>
+  </li>
+  <li>
+  <h4>2009/10/19 13:33</h4>
+  <p>Keyconfigのアクションがページ側のショートカットよりも優先されるように調整しました。また、アクションに制限モードを追加しました。デフォルトではEscキーで制限モードに移行し、制限モードではデフォルトでEsc以外のキーが無効になります。これによりサイト側のショートカットキーが有効になります。制限モードでもアクションは追加できるので、常に優先して使いたいキーを定義することができます。 Thx <a href="http://bitbucket.org/os0x/chromekeyconfig/issue/4/n9jo3nb1ctt5one0exie9i7906c4ebfy5ffr0frbf" target="_blank">yuta.cielo</a></p>
+  <h5>TODO</h5>
+  <ul>
+    <li>どのモードであるか、視覚的に確認できるようにする</li>
+    <li><del>サイト(ドメイン)ごとに状態を保存する</del><ins>済</ins></li>
+  </ul>
+  </li>
+  <li>
+  <h4>2009/10/19 13:33</h4>
+  <p>フレーム内で「go to this URL」アクションを使用した場合、URLへの移動であればフレームを破棄して移動、Bookmarklet(javascript:から始まる場合)はフレーム内で実行するようにしました。Thx <a href="http://bitbucket.org/os0x/chromekeyconfig/issue/3/bug-designed" target="_blank">yu_sakasaki</a></p>
+  </li>
+  <li>
+  <h4>2009/10/09 23:05</h4>
+  <p>「go to this URL」,「open this URL in new tab」というアクションを追加しました。設定でURLを入力しておくと、そのURLに飛ぶことができます。また、Hit a hint の決定キーを設定で変更できるようにしました。</p>
+  </li>
+  <li>
+  <h4>2009/10/09 21:01</h4>
+  <p>デフォルトでC-cというショートカットがあり、Windowsのコピーをブロックしていたので削除しました。以前のバージョンをインストールされていた方はお手数ですが、手動で削除する必要があります。</p>
+  </li>
+  <li>
+  <h4>2009/10/xx</h4>
+  <p>LDRize相当の機能(j,kでのパラグラフ移動、vでの現在のパラグラフのリンクに移動、pでのピンのセット、oでのピンのオープン)を実装しました。BasicオプションのLDRizeを有効にすると利用できます。なお、あわせてスムーズスクロールも有効にするのがオススメです。</p>
+  </li>
+  <li>
+  <h4>2009/10/xx</h4>
+  <p>ご要望などは<a href="http://bitbucket.org/os0x/chromekeyconfig/issues/" target="_blank">bitbucket</a>に頂けると助かります。OpenIDに対応していますので、はてな、Yahoo、mixiなどのアカウントでログインできます。</p>
+  </li>
+  </ul>
+</section>
+<section id="about" class="content">
+  <dl>
+    <dt>Name:
+    <dd><a href="https://chrome.google.com/extensions/detail/okneonigbfnolfkmfgjmaeniipdjkgkl" target="_blank">Chrome Keyconfig</a>
+    <dt>Version:
+    <dd>ver <span id="ExtensionVersion"></span>
+    <dt>Author:
+    <dd><a href="http://ss-o.net/" target="_blank">os0x</a>
+    <dt>Thanks:
+    <dd><a href="http://my.opera.com/edvakf/blog/" target="_blank">edvakf</a>, <a href="http://rails2u.com/" target="_blank">Yuichi Tateno</a>
+    <dt>License:
+    <dd><a href="http://os0x.mit-license.org/" target="_blank">The MIT license</a>
+    <dt>Source:
+    <dd><a href="https://github.com/os0x/ChromeKeyconfig" target="_blank">https://github.com/os0x/ChromeKeyconfig</a>
+  </dl>
+</section>
+</div>
+<div id="cover">
+  <ul id="action_names_list"></ul>
+  <ul id="vim_action_names_list"></ul>
+</div>
+<script src="js/options.js"></script>
+</body>
+</html>
