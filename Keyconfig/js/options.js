@@ -469,7 +469,7 @@ import_conf.addEventListener('click',function(){
 var reset_all = document.getElementById('reset_all');
 reset_all.addEventListener('click',function(){
   if (confirm('Are sure you want to delete this config? There is NO undo!')) {
-    Config = JSON.parse(BackGround.default_keyconfig);
+    Config = JSON.parse(JSON.stringify(BackGround.default_keyconfig));
     BackGround.Keyconfig = Config;
     config_save();
     location.reload();
