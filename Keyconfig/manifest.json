@@ -4,7 +4,7 @@
   "background_page": "background.html",
   "permissions": [ "bookmarks", "tabs", "http://ss-o.net/" , "http://wedata.net/", "clipboardRead"],
   "options_page": "options_page.html",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "default_locale": "en_US",
   "id": "okneonigbfnolfkmfgjmaeniipdjkgkl",
   "update_url": "http://ss-o.net/chrome_extension/ChromeKeyconfig/updates.xml",

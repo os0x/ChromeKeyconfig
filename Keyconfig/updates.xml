@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
   <app appid="okneonigbfnolfkmfgjmaeniipdjkgkl">
-    <updatecheck codebase="http://ss-o.net/chrome_extension/ChromeKeyconfig.crx" version="1.13.0" />
+    <updatecheck codebase="http://ss-o.net/chrome_extension/ChromeKeyconfig.crx" version="1.13.1" />
   </app>
 </gupdate>
