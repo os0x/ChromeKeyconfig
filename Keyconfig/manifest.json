@@ -27,5 +27,6 @@
      "64": "Keyconfig_64.png",
      "32": "Keyconfig_32.png",
      "16": "Keyconfig.png"
-   }
+   },
+   "manifest_version": 2
 }
