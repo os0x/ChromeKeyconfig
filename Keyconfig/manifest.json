@@ -12,7 +12,6 @@
   "options_page": "options_page.html",
   "version": "1.13.1",
   "default_locale": "en_US",
-  "id": "okneonigbfnolfkmfgjmaeniipdjkgkl",
   "update_url": "http://ss-o.net/chrome_extension/ChromeKeyconfig/updates.xml",
   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzLgOT+EgpmGdeAK27pWiH4WZMxinl4S6qBIKU1H3bsKMDYaDjkZ/62gwwzvGvhBZibcl4nQaA0udMfKXXm7GxhtiQ3eULKItc8d3lCdqXphtN1hHx4dzTo4A6bRxWtwmE/re/aJ3Dw9fvqQNwKOrG1hViszIITa7YQYmFUA81MwIDAQAB",
   "content_scripts": [
