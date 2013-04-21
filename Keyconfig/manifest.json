@@ -1,7 +1,13 @@
 {
   "name": "Keyconfig",
   "description": "Keyconfig",
-  "background_page": "background.html",
+   "background": {
+      "scripts": [
+          "js/TabUtils.js",
+          "js/QuickMarks.js",
+          "js/background.js"
+          ]
+   },
   "permissions": [ "bookmarks", "tabs", "http://ss-o.net/" , "http://wedata.net/", "clipboardRead"],
   "options_page": "options_page.html",
   "version": "1.13.1",
