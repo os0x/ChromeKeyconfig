@@ -442,7 +442,8 @@ function get_manifest(callback){
   xhr.send(null);
 }
 window.addEventListener('load',function(){
-  clipNode = document.getElementById('clipboard-area');
+  clipNode = document.createElement('textarea');
+  document.body.appendChild(clipNode);
   clipRange = document.createRange();
   var CHROME_GESTURES = 'jpkfjicglakibpenojifdiepckckakgk';
   var ldrize = {
