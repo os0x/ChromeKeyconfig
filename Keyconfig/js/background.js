@@ -337,8 +337,8 @@ chrome.tabs.onRemoved.addListener(function(tabid){
   }
 });
 var clipNode, clipRange;
-chrome.extension.onRequestExternal.addListener(RequestHandler);
-chrome.extension.onRequest.addListener(RequestHandler);
+chrome.runtime.onMessageExternal.addListener(RequestHandler);
+chrome.runtime.onMessage.addListener(RequestHandler);
 function RequestHandler(message, sender, sendResponse){
   if (message.group && Array.isArray(message.actions)) {
     try {
@@ -452,7 +452,7 @@ window.addEventListener('load',function(){
       {name:"LDRize.prev",args:[]}
     ]
   };
-  chrome.extension.sendRequest(CHROME_GESTURES, ldrize,function(){
+  chrome.runtime.sendMessage(CHROME_GESTURES, ldrize,function(){
   });
 },false);
 function LDRize(){
