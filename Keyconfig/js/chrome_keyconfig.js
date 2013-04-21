@@ -155,7 +155,7 @@ function get_key(evt) {
 var keyconfig = 'okneonigbfnolfkmfgjmaeniipdjkgkl';
 var Namespace = 'http://ss-o.net/chrome_extension/ChromeKeyconfig/';
 function backRequest(message) {
-  chrome.extension.sendRequest(keyconfig, message, ResponseHandler);
+  chrome.runtime.sendMessage(keyconfig, message, ResponseHandler);
 }
 var debug = false;
 var Root = /BackCompat/.test(document.compatMode) ? document.body : document.documentElement;

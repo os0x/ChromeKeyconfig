@@ -1,12 +1,17 @@
 {
   "name": "Keyconfig",
   "description": "Keyconfig",
-  "background_page": "background.html",
+   "background": {
+      "scripts": [
+          "js/TabUtils.js",
+          "js/QuickMarks.js",
+          "js/background.js"
+          ]
+   },
   "permissions": [ "bookmarks", "tabs", "http://ss-o.net/" , "http://wedata.net/", "clipboardRead"],
   "options_page": "options_page.html",
   "version": "1.13.1",
   "default_locale": "en_US",
-  "id": "okneonigbfnolfkmfgjmaeniipdjkgkl",
   "update_url": "http://ss-o.net/chrome_extension/ChromeKeyconfig/updates.xml",
   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzLgOT+EgpmGdeAK27pWiH4WZMxinl4S6qBIKU1H3bsKMDYaDjkZ/62gwwzvGvhBZibcl4nQaA0udMfKXXm7GxhtiQ3eULKItc8d3lCdqXphtN1hHx4dzTo4A6bRxWtwmE/re/aJ3Dw9fvqQNwKOrG1hViszIITa7YQYmFUA81MwIDAQAB",
   "content_scripts": [
@@ -27,5 +32,6 @@
      "64": "Keyconfig_64.png",
      "32": "Keyconfig_32.png",
      "16": "Keyconfig.png"
-   }
+   },
+   "manifest_version": 2
 }
