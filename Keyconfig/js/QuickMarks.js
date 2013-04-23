@@ -2,10 +2,10 @@ var QuickMarks = {
   get folderName() {
     return 'QuickMarks';
   },
-  addQuickMark: function(options) {
+  addQuickMark: function (options) {
     var key = options.key;
     if (key.length == 0) throw(new Error('key required'));
-    var callback = options.callback || function() {
+    var callback = options.callback || function () {
       options.sendResponse({
         action: 'Notify.simple',
         data: {
@@ -13,15 +13,15 @@ var QuickMarks = {
         }
       });
     };
-    QuickMarks.getChildren(function(children, parentId) {
+    QuickMarks.getChildren(function (children, parentId) {
       var target;
-      children.some(function(child){
+      children.some(function (child) {
         if (child.title == key && child.url) {
           target = child;
           return true;
         }
       });
-      var create = function() {
+      var create = function () {
         chrome.bookmarks.create({
           parentId: parentId,
           title: key,
@@ -35,10 +35,10 @@ var QuickMarks = {
       }
     });
   },
-  removeQuickMark: function(options) {
+  removeQuickMark: function (options) {
     var key = options.key;
     if (key.length == 0) throw(new Error('key required'));
-    var callback = options.callback || function() {
+    var callback = options.callback || function () {
       options.sendResponse({
         action: 'Notify.simple',
         data: {
@@ -46,8 +46,8 @@ var QuickMarks = {
         }
       });
     };
-    QuickMarks.getChildren(function(children, parentId) {
-      children.some(function(child){
+    QuickMarks.getChildren(function (children, parentId) {
+      children.some(function (child) {
         if (child.title == key && child.url) {
           var target = child;
           chrome.bookmarks.remove(target.id, callback);
@@ -56,14 +56,15 @@ var QuickMarks = {
       });
     });
   },
-  lunchQuckMark: function(options) {
+  lunchQuckMark: function (options) {
     var key = options.key;
     if (key.length == 0) throw(new Error('key required'));
     var mode = options.mode;
-    var callback = options.callback || function() {};
-    QuickMarks.getChildren(function(children, parentId) {
+    var callback = options.callback || function () {
+    };
+    QuickMarks.getChildren(function (children, parentId) {
       var target;
-      children.some(function(child){
+      children.some(function (child) {
         if (child.title == key && child.url) {
           target = child;
           return true;
@@ -96,36 +97,36 @@ var QuickMarks = {
       }
     });
   },
-  getChildren: function(callback) {
-    chrome.bookmarks.getTree(function(trees) {
+  getChildren: function (callback) {
+    chrome.bookmarks.getTree(function (trees) {
       var others = trees[0].children[1];
       var children = others.children;
       var target;
-      children.some(function(child){
+      children.some(function (child) {
         if (child.title == QuickMarks.folderName && !child.url) {
           target = child;
           return true;
         }
       });
       if (target) {
-        chrome.bookmarks.getChildren(target.id, function(res) {
+        chrome.bookmarks.getChildren(target.id, function (res) {
           callback(res, target.id);
         });
       } else {
         chrome.bookmarks.create({
           parentId: others.id,
           title: QuickMarks.folderName
-        }, function(target) {
+        }, function (target) {
           callback([], target.id);
         });
       }
     });
   }
 };
-window.addEventListener('load',function(){
+window.addEventListener('load', function () {
   MainActions.registerActions({
     add_quick_mark: QuickMarks.addQuickMark,
     remove_quick_mark: QuickMarks.removeQuickMark,
     lunch_quick_mark: QuickMarks.lunchQuckMark
   });
-},false);
+}, false);

@@ -10,7 +10,7 @@ function addDefaultPrefix(xpath, prefix) {
     if (suffix) {
       tokenType =
         (suffix == ':' || (suffix == '::' && (identifier == 'attribute' || identifier == 'namespace')))
-        ? MODIFIER : OPERATOR;
+          ? MODIFIER : OPERATOR;
     } else if (identifier) {
       if (tokenType == OPERATOR && identifier != '*')
         token = prefix + token;
@@ -20,6 +20,7 @@ function addDefaultPrefix(xpath, prefix) {
     }
     return token;
   }
+
   return xpath.replace(tokenPattern, replacer);
 }
 
@@ -28,31 +29,34 @@ function addDefaultPrefix(xpath, prefix) {
 // $X(exp, context);
 // @target Freifox3, Chrome3, Safari4, Opera10
 // @source http://gist.github.com/184276.txt
-function $X (exp, context) {
+function $X(exp, context) {
   context || (context = document);
-  var _document  = context.ownerDocument || document,
-  documentElement = _document.documentElement;
+  var _document = context.ownerDocument || document,
+    documentElement = _document.documentElement;
   var isXHTML = documentElement.tagName !== 'HTML' && _document.createElement('p').tagName === 'p';
   var defaultPrefix = null;
   if (isXHTML) {
     defaultPrefix = '__default__';
     exp = addDefaultPrefix(exp, defaultPrefix);
   }
-  function resolver (prefix) {
+  function resolver(prefix) {
     return context.lookupNamespaceURI(prefix === defaultPrefix ? null : prefix) ||
-         documentElement.namespaceURI || '';
+      documentElement.namespaceURI || '';
   }
 
   var result = _document.evaluate(exp, context, resolver, XPathResult.ANY_TYPE, null);
-    switch (result.resultType) {
-      case XPathResult.STRING_TYPE : return result.stringValue;
-      case XPathResult.NUMBER_TYPE : return result.numberValue;
-      case XPathResult.BOOLEAN_TYPE: return result.booleanValue;
-      case XPathResult.UNORDERED_NODE_ITERATOR_TYPE:
-        // not ensure the order.
-        var ret = [], i = null;
-        while (i = result.iterateNext()) ret.push(i);
-        return ret;
-    }
+  switch (result.resultType) {
+    case XPathResult.STRING_TYPE :
+      return result.stringValue;
+    case XPathResult.NUMBER_TYPE :
+      return result.numberValue;
+    case XPathResult.BOOLEAN_TYPE:
+      return result.booleanValue;
+    case XPathResult.UNORDERED_NODE_ITERATOR_TYPE:
+      // not ensure the order.
+      var ret = [], i = null;
+      while (i = result.iterateNext()) ret.push(i);
+      return ret;
+  }
   return null;
 }

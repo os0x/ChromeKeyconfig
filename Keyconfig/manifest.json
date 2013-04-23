@@ -1,19 +1,17 @@
 {
   "name": "Keyconfig",
-  "description": "Keyconfig",
-   "background": {
-      "scripts": [
-          "js/TabUtils.js",
-          "js/QuickMarks.js",
-          "js/background.js"
-          ]
-   },
+  "description": "Keyconfig for Google Chrome\u2122",
+  "background": {
+    "scripts": [
+      "js/TabUtils.js",
+      "js/QuickMarks.js",
+      "js/background.js"
+    ]
+  },
   "permissions": [ "bookmarks", "tabs", "http://ss-o.net/" , "http://wedata.net/", "clipboardRead"],
   "options_page": "options_page.html",
-  "version": "1.13.1",
+  "version": "1.14.0",
   "default_locale": "en_US",
-  "update_url": "http://ss-o.net/chrome_extension/ChromeKeyconfig/updates.xml",
-  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzLgOT+EgpmGdeAK27pWiH4WZMxinl4S6qBIKU1H3bsKMDYaDjkZ/62gwwzvGvhBZibcl4nQaA0udMfKXXm7GxhtiQ3eULKItc8d3lCdqXphtN1hHx4dzTo4A6bRxWtwmE/re/aJ3Dw9fvqQNwKOrG1hViszIITa7YQYmFUA81MwIDAQAB",
   "content_scripts": [
     {
       "js": [
@@ -24,14 +22,14 @@
         "https://*/*"
       ],
       "run_at": "document_start",
-      "all_frames":true
+      "all_frames": true
     }
   ],
-   "icons": {
-     "128": "Keyconfig_128.png",
-     "64": "Keyconfig_64.png",
-     "32": "Keyconfig_32.png",
-     "16": "Keyconfig.png"
-   },
-   "manifest_version": 2
+  "icons": {
+    "128": "Keyconfig_128.png",
+    "64": "Keyconfig_64.png",
+    "32": "Keyconfig_32.png",
+    "16": "Keyconfig.png"
+  },
+  "manifest_version": 2
 }
