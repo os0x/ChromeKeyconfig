@@ -1225,10 +1225,13 @@
       }
       var target = evt.target;
       var isTextedit = false;
-      if ('selectionStart' in target && target.disabled !== true) {
+      if (('selectionStart' in target || target.isContentEditable) && target.disabled !== true) {
         try {
           var s = target.selectionStart;
           if (KeyConfig.config.chrome_vim) {
+            if (s === undefined && target.isContentEditable) {
+              return;
+            }
             if (KeyConfig.vimActionSet === 'vim_normal_actions') {
               evt.preventDefault();
             }
