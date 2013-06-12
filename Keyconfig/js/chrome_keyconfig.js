@@ -326,9 +326,15 @@
   };
   var ACTION = {
     "back": function (arg) {
+      if (history.length == 1) {
+        return;
+      }
       history.go(Math.max(-arg.times, -history.length + 1));
     },
     "fastback": function (arg) {
+      if (history.length == 1) {
+        return;
+      }
       history.go(-history.length + 1);
     },
     "forward": function (arg) {
