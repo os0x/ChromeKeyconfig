@@ -502,7 +502,7 @@ function LDRize() {
   }
 
   function UpdateSiteinfo() {
-    var url = 'http://ss-o.net/json/wedataLDRize.json';
+    var url = 'http://os0x.heteml.jp/ss-onet/json/wedataLDRize.json';
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
       try {

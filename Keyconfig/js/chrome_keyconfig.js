@@ -20,7 +20,7 @@
 
 
   var keyconfig = chrome.runtime.id;
-  var Namespace = 'http://ss-o.net/chrome_extension/ChromeKeyconfig/';
+  var Namespace = 'http://os0x.heteml.jp/chrome_extension/ChromeKeyconfig/';
 
   function backRequest(message) {
     chrome.runtime.sendMessage(keyconfig, message, ResponseHandler);
