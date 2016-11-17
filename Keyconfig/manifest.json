@@ -10,7 +10,7 @@
   },
   "permissions": [ "bookmarks", "tabs", "http://ss-o.net/" , "http://wedata.net/", "clipboardRead"],
   "options_page": "options_page.html",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "default_locale": "en_US",
   "content_scripts": [
     {
